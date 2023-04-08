@@ -37,7 +37,7 @@ function App() {
             path="/StudentRegistration"
             element={<StudentRegistration />}
           />
-          <Route path="admin" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLogin />} />
         </Route>
 
         {userAuth?.user?.role === "admin" ? (
