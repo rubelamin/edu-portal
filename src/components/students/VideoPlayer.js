@@ -76,16 +76,17 @@ export default function VideoPlayer({
     isLoading: quizLoading,
     isError: quizError,
   } = useCheckQuizIsSubmitQuery({
-    video_id: videoId,
+    video_id: videoId || 1,
     student_id: studentDetails?.id,
   });
 
   useEffect(() => {
-    if (quizSubmitted?.length) {
+    if (quizSubmitted?.length && !quizLoading && !quizError) {
       setQuizIsSubmitted(true);
       dispatch(quizSubmitting(undefined));
       dispatch(quizSubmitting(true));
-    } else {
+    }
+    if (quizSubmitted?.length === 0 && !quizLoading && !quizError) {
       setQuizIsSubmitted(false);
       dispatch(quizSubmitting(undefined));
       dispatch(quizSubmitting(false));

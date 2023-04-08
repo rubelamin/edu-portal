@@ -52,7 +52,7 @@ export const quizeApi = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         const quizSubRes = dispatch(
           apiSlice.util.updateQueryData(
-            ["getQuizes", "studentQuizMark", "getAllQuizeMark"],
+            "getQuizes",
             arg?.data?.video_id,
             (draft) => {
               dispatch(isQuizSubmitted(true));
